@@ -162,7 +162,6 @@ export async function action({ request }) {
 
   if (Object.keys(errors).length > 0) return errors;
 
-  // If everything is okay, create new order and redirect
   const newOrder = await createOrder(order);
 
   store.dispatch(clearCart());

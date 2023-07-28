@@ -1,4 +1,4 @@
-const API_URL = "https://react-fast-pizza-api.onrender.com/api";
+const API_URL = 'https://react-fast-pizza-api.onrender.com/api';
 
 /**
  * Fetch menu data (/menu)
@@ -8,7 +8,7 @@ const API_URL = "https://react-fast-pizza-api.onrender.com/api";
 export async function getMenu() {
   const res = await fetch(`${API_URL}/menu`);
 
-  if (!res.ok) throw Error("Failed getting menu");
+  if (!res.ok) throw Error('Failed getting menu');
 
   const { data } = await res.json();
   return data;
@@ -36,10 +36,10 @@ export async function getOrder(id) {
 export async function createOrder(newOrder) {
   try {
     const res = await fetch(`${API_URL}/order`, {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify(newOrder),
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     });
 
@@ -47,6 +47,28 @@ export async function createOrder(newOrder) {
     const { data } = await res.json();
     return data;
   } catch {
-    throw Error("Failed creating your order");
+    throw Error('Failed creating your order');
+  }
+}
+
+/**
+ * Will do a PATCH request to update the ordered pizza incase we make it priority after ordering.
+ * @param {string} id id of the order that should be updated
+ * @param {Object} updateObj the data should be updated
+ * @author Anik Paul
+ */
+export async function updateOrder(id, updateObj) {
+  try {
+    const res = await fetch(`${API_URL}/order/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(updateObj),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!res.ok) throw Error();
+  } catch (err) {
+    throw Error('Failed updating your order');
   }
 }

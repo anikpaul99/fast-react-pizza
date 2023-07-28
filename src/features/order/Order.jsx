@@ -9,6 +9,7 @@ import {
 } from '../../utils/helpers';
 
 import OrderItem from './OrderItem';
+import UpdateOrder from './UpdateOrder';
 
 /**
  * Component holding info about the searched query of a particular order
@@ -93,6 +94,8 @@ function Order() {
           To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
         </p>
       </div>
+
+      {!priority && <UpdateOrder order={order} />}
     </div>
   );
 }

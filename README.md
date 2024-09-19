@@ -66,8 +66,6 @@ Here are some screenshots of the application to give you a visual overview:
 6. **Looking Up an Order (`/order/:orderId`)**
    ![Order Lookup Screenshot](screenshots/order%20status%20page.png)
 
-_Note: Replace `path_to_screenshot.png` with the actual path to your images._
-
 ## Technologies Used
 
 The project utilizes the following technologies and tools:
